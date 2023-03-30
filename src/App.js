@@ -50,7 +50,7 @@ class App extends React.Component {
 				userEmail: '',
 				userPass: '',
 				userAccept: false,
-				notification: 'Sent!!',
+				notification: 'Sent!!!',
 
 				errors: {
 					userName: false,
