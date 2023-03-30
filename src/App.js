@@ -7,6 +7,13 @@ class App extends React.Component {
 		userEmail: '',
 		userPass: '',
 		userAccept: true,
+
+		errors: {
+			userName: true,
+			userEmail: false,
+			userPass: false,
+			userAccept: false,
+		},
 	};
 
 	messages = {
