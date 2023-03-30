@@ -4,15 +4,14 @@ import './App.css';
 class App extends React.Component {
 	state = {
 		userName: '',
+		userEmail: '',
 	};
 
 	handleChange = (e) => {
-		console.log(e.target.type);
-		console.log(e.target.name);
+		const name = e.target.name;
 		const value = e.target.value;
 		this.setState({
-			userName: value,
-			userEmail: '',
+			[name]: value,
 		});
 	};
 
