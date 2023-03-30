@@ -42,7 +42,6 @@ class App extends React.Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		const validationResult = this.formValidation();
-		console.log('🚀 ~ file: App.js:45 ~ App ~ validationResult:', validationResult);
 
 		if (validationResult.correct) {
 			this.setState({
