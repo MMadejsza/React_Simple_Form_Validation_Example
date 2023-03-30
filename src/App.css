@@ -1,12 +1,33 @@
 form {
-	margin: 20px;
+	margin: 20px auto;
+	width: 320px;
+	display: flex;
+	flex-direction: column;
 }
 
 label {
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+label:nth-last-of-type(1) {
+	justify-content: left;
 }
 
 input {
-	margin-left: 20px;
-	margin-top: 20px;
+	padding-left: 15px;
+}
+
+input[type='checkbox'] {
+	margin-left: 0;
+	margin-right: 15px;
+}
+
+button {
+	margin: 20px 0;
+	max-width: 200px;
+	padding: 10px 20px;
+	align-self: center;
 }

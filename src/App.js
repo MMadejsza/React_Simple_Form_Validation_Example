@@ -6,14 +6,23 @@ class App extends React.Component {
 		userName: '',
 		userEmail: '',
 		userPass: '',
+		userAccept: true,
 	};
 
 	handleChange = (e) => {
 		const name = e.target.name;
-		const value = e.target.value;
-		this.setState({
-			[name]: value,
-		});
+		const type = e.target.type;
+		if (type != 'checkbox') {
+			const value = e.target.value;
+			this.setState({
+				[name]: value,
+			});
+		} else {
+			const checked = e.target.checked;
+			this.setState({
+				[name]: checked,
+			});
+		}
 	};
 
 	handleSubmit = (e) => {
@@ -54,6 +63,16 @@ class App extends React.Component {
 							value={this.state.userPass}
 							onChange={this.handleChange}
 						/>
+					</label>
+					<label htmlFor='accept'>
+						<input
+							type='checkbox'
+							id='accept'
+							name='userAccept'
+							checked={this.state.userAccept}
+							onChange={this.handleChange}
+						/>
+						I agree with Privacy Policy
 					</label>
 					<button>Sign Up!</button>
 				</form>
