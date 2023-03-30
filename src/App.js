@@ -44,7 +44,7 @@ class App extends React.Component {
 		const validationResult = this.formValidation();
 		console.log('🚀 ~ file: App.js:45 ~ App ~ validationResult:', validationResult);
 
-		if (true) {
+		if (validationResult.correct) {
 			this.setState({
 				userName: '',
 				userEmail: '',
@@ -61,10 +61,10 @@ class App extends React.Component {
 		} else {
 			this.setState({
 				errors: {
-					userName: false,
-					userEmail: false,
-					userPass: false,
-					userAccept: false,
+					userName: !validationResult.name,
+					userEmail: !validationResult.email,
+					userPass: !validationResult.password,
+					userAccept: !validationResult.accepted,
 				},
 			});
 		}
