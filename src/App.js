@@ -7,6 +7,7 @@ class App extends React.Component {
 		userEmail: '',
 		userPass: '',
 		userAccept: false,
+		notification: '',
 
 		errors: {
 			userName: false,
@@ -22,7 +23,6 @@ class App extends React.Component {
 		userAcceptStatus_Incorrect: 'Unaccepted Privacy Policy',
 		userPasswordStatus_Incorrect: 'Password must contain minimum 6 characters',
 	};
-
 	handleChange = (e) => {
 		const name = e.target.name;
 		const type = e.target.type;
@@ -41,6 +41,7 @@ class App extends React.Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
+		console.log('submitted');
 		const validationResult = this.formValidation();
 
 		if (validationResult.correct) {
@@ -49,6 +50,7 @@ class App extends React.Component {
 				userEmail: '',
 				userPass: '',
 				userAccept: false,
+				notification: 'Sent!!',
 
 				errors: {
 					userName: false,
@@ -99,8 +101,22 @@ class App extends React.Component {
 			correct,
 		};
 	};
+
+	componentDidUpdate() {
+		console.log('update');
+		if (this.state.notification !== '') {
+			setTimeout(
+				() =>
+					this.setState({
+						notification: '',
+					}),
+				3000,
+			);
+		}
+	}
+
 	render() {
-		const {userName, userEmail, userPass, userAccept} = this.state;
+		const {userName, userEmail, userPass, userAccept, notification} = this.state;
 		const {
 			userName: Er_userName,
 			userEmail: Er_userEmail,
@@ -162,6 +178,7 @@ class App extends React.Component {
 					</label>
 					<button>Sign Up!</button>
 				</form>
+				{notification && <h3>{notification}</h3>}
 			</div>
 		);
 	}
