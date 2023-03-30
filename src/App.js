@@ -6,7 +6,7 @@ class App extends React.Component {
 		userName: '',
 		userEmail: '',
 		userPass: '',
-		userAccept: true,
+		userAccept: false,
 
 		errors: {
 			userName: false,
@@ -41,6 +41,30 @@ class App extends React.Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		console.log('działa');
+		if (true) {
+			this.setState({
+				userName: '',
+				userEmail: '',
+				userPass: '',
+				userAccept: false,
+
+				errors: {
+					userName: false,
+					userEmail: false,
+					userPass: false,
+					userAccept: false,
+				},
+			});
+		} else {
+			this.setState({
+				errors: {
+					userName: false,
+					userEmail: false,
+					userPass: false,
+					userAccept: false,
+				},
+			});
+		}
 	};
 
 	render() {
