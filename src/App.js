@@ -24,7 +24,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className='App'>
-				<form onSubmit={this.handleSubmit}>
+				<form onSubmit={this.handleSubmit} noValidate>
 					<label htmlFor='user'>
 						Your Name:
 						<input
@@ -44,16 +44,16 @@ class App extends React.Component {
 							value={this.state.userEmail}
 							onChange={this.handleChange}
 						/>
-						<label htmlFor='pass'>
-							Password:
-							<input
-								type='password'
-								id='pass'
-								name='userPass'
-								value={this.state.userPass}
-								onChange={this.handleChange}
-							/>
-						</label>
+					</label>
+					<label htmlFor='pass'>
+						Password:
+						<input
+							type='password'
+							id='pass'
+							name='userPass'
+							value={this.state.userPass}
+							onChange={this.handleChange}
+						/>
 					</label>
 					<button>Sign Up!</button>
 				</form>
