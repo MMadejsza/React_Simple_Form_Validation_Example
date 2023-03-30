@@ -16,10 +16,15 @@ class App extends React.Component {
 		});
 	};
 
+	handleSubmit = (e) => {
+		e.preventDefault();
+		console.log('działa');
+	};
+
 	render() {
 		return (
 			<div className='App'>
-				<form action=''>
+				<form onSubmit={this.handleSubmit}>
 					<label htmlFor='user'>
 						Your Name:
 						<input
@@ -50,6 +55,7 @@ class App extends React.Component {
 							/>
 						</label>
 					</label>
+					<button>Sign Up!</button>
 				</form>
 			</div>
 		);
