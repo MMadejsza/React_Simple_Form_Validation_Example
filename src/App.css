@@ -1,3 +1,9 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 form {
 	margin: 20px auto;
 	width: 320px;
@@ -16,7 +22,8 @@ label:nth-last-of-type(1) {
 	justify-content: left;
 }
 
-input {
+input:not([type='checkbox']) {
+	width: 60%;
 	padding-left: 15px;
 }
 
