@@ -9,7 +9,7 @@ class App extends React.Component {
 		userAccept: true,
 
 		errors: {
-			userName: true,
+			userName: false,
 			userEmail: false,
 			userPass: false,
 			userAccept: false,
@@ -17,15 +17,15 @@ class App extends React.Component {
 	};
 
 	messages = {
-		userName_Incorrect: 'Name must contain at least 2 characters (space not allowed)',
-		userEmail_Incorrect: 'Email must contain "@"',
-		userAccept_Incorrect: 'Unaccepted Privacy Policy',
+		userNameStatus_Incorrect: 'Name must contain at least 2 characters (space not allowed)',
+		userEmailStatus_Incorrect: 'Email must contain "@"',
+		userAcceptStatus_Incorrect: 'Unaccepted Privacy Policy',
 	};
 
 	handleChange = (e) => {
 		const name = e.target.name;
 		const type = e.target.type;
-		if (type != 'checkbox') {
+		if (type !== 'checkbox') {
 			const value = e.target.value;
 			this.setState({
 				[name]: value,
@@ -44,6 +44,15 @@ class App extends React.Component {
 	};
 
 	render() {
+		const {userName, userEmail, userPass, userAccept} = this.state;
+		const {
+			userName: Er_userName,
+			userEmail: Er_userEmail,
+			userPass: Er_userPass,
+			userAccept: Er_userAccept,
+		} = this.state.errors;
+		const {userNameStatus_Incorrect, userEmailStatus_Incorrect, userAcceptStatus_Incorrect} =
+			this.messages;
 		return (
 			<div className='App'>
 				<form onSubmit={this.handleSubmit} noValidate>
@@ -53,9 +62,10 @@ class App extends React.Component {
 							type='text'
 							id='user'
 							name='userName'
-							value={this.state.userName}
+							value={userName}
 							onChange={this.handleChange}
 						/>
+						{Er_userName && <span>{userNameStatus_Incorrect}</span>}
 					</label>
 					<label htmlFor='email'>
 						Your Email:
@@ -63,9 +73,10 @@ class App extends React.Component {
 							type='email'
 							id='email'
 							name='userEmail'
-							value={this.state.userEmail}
+							value={userEmail}
 							onChange={this.handleChange}
 						/>
+						{Er_userEmail && <span>{userEmailStatus_Incorrect}</span>}
 					</label>
 					<label htmlFor='pass'>
 						Password:
@@ -73,7 +84,7 @@ class App extends React.Component {
 							type='password'
 							id='pass'
 							name='userPass'
-							value={this.state.userPass}
+							value={userPass}
 							onChange={this.handleChange}
 						/>
 					</label>
@@ -82,10 +93,11 @@ class App extends React.Component {
 							type='checkbox'
 							id='accept'
 							name='userAccept'
-							checked={this.state.userAccept}
+							checked={userAccept}
 							onChange={this.handleChange}
 						/>
 						I agree with Privacy Policy
+						{Er_userPass && <span>{userAcceptStatus_Incorrect}</span>}
 					</label>
 					<button>Sign Up!</button>
 				</form>
