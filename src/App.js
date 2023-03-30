@@ -20,6 +20,7 @@ class App extends React.Component {
 		userNameStatus_Incorrect: 'Name must contain at least 2 characters (space not allowed)',
 		userEmailStatus_Incorrect: 'Email must contain "@"',
 		userAcceptStatus_Incorrect: 'Unaccepted Privacy Policy',
+		userPasswordStatus_Incorrect: 'Password must contain minimum 6 characters',
 	};
 
 	handleChange = (e) => {
@@ -40,7 +41,7 @@ class App extends React.Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		console.log('działa');
+		const validationResult = this.formValidation();
 		if (true) {
 			this.setState({
 				userName: '',
@@ -67,6 +68,36 @@ class App extends React.Component {
 		}
 	};
 
+	formValidation = () => {
+		const {userName, userEmail, userPass, userAccept} = this.state;
+		let name = false;
+		let email = false;
+		let password = false;
+		let accepted = false;
+		let correct = false;
+		if (userName.length > 10 && userName.indexOf(' ') === -1) {
+			name = true;
+		}
+		if (userEmail.indexOf('@') !== -1) {
+			email = true;
+		}
+		if (userPass.length >= 6) {
+			password = true;
+		}
+		if (userAccept) {
+			accepted = true;
+		}
+		if (name && email && password && userAccept) {
+			correct = true;
+		}
+		return {
+			name,
+			email,
+			password,
+			accepted,
+			correct,
+		};
+	};
 	render() {
 		const {userName, userEmail, userPass, userAccept} = this.state;
 		const {
@@ -75,8 +106,12 @@ class App extends React.Component {
 			userPass: Er_userPass,
 			userAccept: Er_userAccept,
 		} = this.state.errors;
-		const {userNameStatus_Incorrect, userEmailStatus_Incorrect, userAcceptStatus_Incorrect} =
-			this.messages;
+		const {
+			userNameStatus_Incorrect,
+			userEmailStatus_Incorrect,
+			userAcceptStatus_Incorrect,
+			userPasswordStatus_Incorrect,
+		} = this.messages;
 		return (
 			<div className='App'>
 				<form onSubmit={this.handleSubmit} noValidate>
@@ -111,6 +146,7 @@ class App extends React.Component {
 							value={userPass}
 							onChange={this.handleChange}
 						/>
+						{Er_userPass && <span>{userPasswordStatus_Incorrect}</span>}
 					</label>
 					<label htmlFor='accept'>
 						<input
@@ -121,7 +157,7 @@ class App extends React.Component {
 							onChange={this.handleChange}
 						/>
 						I agree with Privacy Policy
-						{Er_userPass && <span>{userAcceptStatus_Incorrect}</span>}
+						{Er_userAccept && <span>{userAcceptStatus_Incorrect}</span>}
 					</label>
 					<button>Sign Up!</button>
 				</form>
