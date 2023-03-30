@@ -5,6 +5,7 @@ class App extends React.Component {
 	state = {
 		userName: '',
 		userEmail: '',
+		userPass: '',
 	};
 
 	handleChange = (e) => {
@@ -29,7 +30,7 @@ class App extends React.Component {
 							onChange={this.handleChange}
 						/>
 					</label>
-					<label htmlFor='user'>
+					<label htmlFor='email'>
 						Your Email:
 						<input
 							type='email'
@@ -38,16 +39,16 @@ class App extends React.Component {
 							value={this.state.userEmail}
 							onChange={this.handleChange}
 						/>
-					</label>
-					<label htmlFor='user'>
-						Your Name:
-						<input
-							type='text'
-							id='user'
-							name='userName'
-							value={this.state.userName}
-							onChange={this.handleChange}
-						/>
+						<label htmlFor='pass'>
+							Password:
+							<input
+								type='password'
+								id='pass'
+								name='userPass'
+								value={this.state.userPass}
+								onChange={this.handleChange}
+							/>
+						</label>
 					</label>
 				</form>
 			</div>
