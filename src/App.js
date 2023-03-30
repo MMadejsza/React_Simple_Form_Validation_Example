@@ -9,6 +9,12 @@ class App extends React.Component {
 		userAccept: true,
 	};
 
+	messages = {
+		userName_Incorrect: 'Name must contain at least 2 characters (space not allowed)',
+		userEmail_Incorrect: 'Email must contain "@"',
+		userAccept_Incorrect: 'Unaccepted Privacy Policy',
+	};
+
 	handleChange = (e) => {
 		const name = e.target.name;
 		const type = e.target.type;
