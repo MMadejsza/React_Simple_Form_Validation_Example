@@ -17,7 +17,7 @@ class App extends React.Component {
 	};
 
 	messages = {
-		userNameStatus_Incorrect: 'Name must contain at least 2 characters (space not allowed)',
+		userNameStatus_Incorrect: 'Name must contain at least 10 characters (space not allowed)',
 		userEmailStatus_Incorrect: 'Email must contain "@"',
 		userAcceptStatus_Incorrect: 'Unaccepted Privacy Policy',
 		userPasswordStatus_Incorrect: 'Password must contain minimum 6 characters',
@@ -42,6 +42,8 @@ class App extends React.Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		const validationResult = this.formValidation();
+		console.log('🚀 ~ file: App.js:45 ~ App ~ validationResult:', validationResult);
+
 		if (true) {
 			this.setState({
 				userName: '',
