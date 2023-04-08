@@ -1,0 +1,2 @@
+*{box-sizing:border-box;font-family:Montserrat;margin:0;padding:0}form{flex-direction:column;margin:20px auto;width:320px}form,label{display:flex}label{align-items:center;flex-wrap:wrap;justify-content:space-between;margin-top:20px}label>span{color:red;font-size:12px;margin-top:5px}label:last-of-type{justify-content:left}input:not([type=checkbox]){padding-left:15px;width:60%}input[type=checkbox]{margin-left:0;margin-right:15px}button{align-self:center;margin:20px 0;max-width:200px;padding:10px 20px}h3{text-align:center}
+/*# sourceMappingURL=main.485a6bc2.css.map*/

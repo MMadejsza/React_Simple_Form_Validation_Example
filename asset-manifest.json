@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/React_Simple_Form_Validation_Example/static/css/main.485a6bc2.css",
+    "main.js": "/React_Simple_Form_Validation_Example/static/js/main.5a0b1a1d.js",
+    "static/js/787.60235f71.chunk.js": "/React_Simple_Form_Validation_Example/static/js/787.60235f71.chunk.js",
+    "index.html": "/React_Simple_Form_Validation_Example/index.html",
+    "main.485a6bc2.css.map": "/React_Simple_Form_Validation_Example/static/css/main.485a6bc2.css.map",
+    "main.5a0b1a1d.js.map": "/React_Simple_Form_Validation_Example/static/js/main.5a0b1a1d.js.map",
+    "787.60235f71.chunk.js.map": "/React_Simple_Form_Validation_Example/static/js/787.60235f71.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.485a6bc2.css",
+    "static/js/main.5a0b1a1d.js"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "short_name": "Form Validation",
+  "name": "Form Validation 30/03",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
